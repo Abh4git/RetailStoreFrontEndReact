@@ -60,7 +60,7 @@ const required = value => {
 
       sessionStorage.setItem('user', this.state.username);
       sessionStorage.setItem('IsLoggedIn', true);
-       this.props.history.push("/content");
+       this.props.history.push("/");
 
     } else
 
@@ -119,7 +119,7 @@ const required = value => {
     return (
       <div className="container">
         <nav className="navbar  navbar-light  bg-primary" >
-      <span className="navbar-brand mb-0 h1">Navbar</span>
+      <span className="navbar-brand mb-0 h1">RetailStore Login</span>
       </nav>
         <div className="row justify-content-md-center">
         
