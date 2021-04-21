@@ -3,10 +3,10 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/api/user/";
 
 class UserService {
-    async addUser(user) {
+    async addUser(user,token) {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' , 'Authorization': "Bearer " + token},
             body: JSON.stringify(user)
         };
          return fetch(API_URL,  requestOptions)

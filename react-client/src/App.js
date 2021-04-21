@@ -36,7 +36,10 @@ function App() {
   return (
     <Router>
      
-      <ProtectedRoute path="/" exact component={ ()=> <ProductsList/>} loggedIn={sessionStorage.getItem('IsLoggedIn')}/>
+     <Route exact path="/">
+      <Redirect to="/home" />
+      </Route>
+      <ProtectedRoute path="/home" exact component={ ()=> <ProductsList/>} loggedIn={sessionStorage.getItem('IsLoggedIn')}/>
       <Route path="/logout" exact component={Logout}/>
       <Route path="/login" exact component={()=><Login/>}/>
     </Router>

@@ -54,42 +54,22 @@ const required = value => {
 
     this.form.validateAll();
     sessionStorage.setItem('IsLoggedIn', false);
-    //if (this.checkBtn.context._errors.length === 0) {
-      if (this.state.username=='joe'  &&  this.state.password=='test')
-    {
-
-      sessionStorage.setItem('user', this.state.username);
-      sessionStorage.setItem('IsLoggedIn', true);
-       this.props.history.push("/");
-
-    } else
-
-    {
-      this.setState({
-        loading: false
-      });
-    }
-/*      AuthService.login(this.state.username, this.state.password).then(
+    if (this.checkBtn.context._errors.length === 0) {
+    AuthService.login(this.state.username, this.state.password).then(
         () => {
           
           var current_user = AuthService.getCurrentUser();
           if (current_user)
           {
-          //console.log("User :", current_user)
-          var user_roles = current_user.roles;
-          console.log("User roles:", user_roles);
-          var doesInclude =user_roles.includes("ROLE_ADMIN");
-          console.log('Does include', doesInclude);
-          if (user_roles.includes("ROLE_ADMIN"))
-          {
-            sessionStorage.setItem('user', this.state.username);
-            sessionStorage.setItem('IsLoggedIn', true);
-             this.props.history.push("/content");
-          }
-          else
-          {
-            this.setState({message:'Unauthorized'});
-          }
+          console.log("User :", current_user)
+          //var user_roles = current_user.roles;
+          //console.log("User roles:", user_roles);
+          //var doesInclude =user_roles.includes("ROLE_ADMIN");
+          //console.log('Does include', doesInclude);
+          sessionStorage.setItem('user', this.state.username);
+          sessionStorage.setItem('IsLoggedIn', true);
+          this.props.history.push("/home");
+          
           //window.location.reload();
         }
          
@@ -108,17 +88,18 @@ const required = value => {
           });
         }
       );
-    } else {
+     } else {
       this.setState({
         loading: false
-      });*/
-    //}
+      });
+    }
   }
 
+ 
   render() {
     return (
       <div className="container">
-        <nav className="navbar  navbar-light  bg-primary" >
+        <nav className="navbar  navbar-light  bg-info" >
       <span className="navbar-brand mb-0 h1">RetailStore Login</span>
       </nav>
         <div className="row justify-content-md-center">
@@ -156,7 +137,7 @@ const required = value => {
 
             <div className="form-group">
               <button
-                className="btn btn-primary btn-block rounded-pill"
+                className="btn btn-info btn-block"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
