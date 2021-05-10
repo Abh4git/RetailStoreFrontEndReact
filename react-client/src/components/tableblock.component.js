@@ -11,6 +11,7 @@ class TableRow extends React.Component {
       <td className="expand-button"></td>
       <td>{row.title}</td>
       <td>{row.description}</td>
+      <td><img src={"/assets/"+ row.imagename} /></td>
        </tr>
 
       </React.Fragment>

@@ -37,8 +37,9 @@ class TableRow extends React.Component {
       <td>{row.id}</td>
       <td>{row.name}</td>
       <td>{row.description}</td>
-      <td> <Link to={"/edituser/"+ row.id}><FontAwesomeIcon icon={faEdit} /></Link> 
-      </td>
+      <td><img src={"/assets/"+ row.imagename} width="80" height="100"/></td> 
+      {/*<td> <Link to={"/edituser/"+ row.id}><FontAwesomeIcon icon={faEdit} /></Link> </td>*/}
+      
        </tr>
 
       </React.Fragment>

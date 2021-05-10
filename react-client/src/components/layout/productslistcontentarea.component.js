@@ -47,7 +47,7 @@ class ProductsList extends React.Component{
         <span className="navbar-brand mb-0 h1">Welcome to RetailStore </span>
         </nav>
           <div id="content" className=" w-100 bg-white nopadding mh-100">
-            <TableBlock rows={this.state.current_products} title={'Products'} header={["#","Name","Description"]}/>
+            <TableBlock rows={this.state.current_products} title={'Products'} header={["#","Name","Description","Image"]}/>
            </div>
              </div>
 
