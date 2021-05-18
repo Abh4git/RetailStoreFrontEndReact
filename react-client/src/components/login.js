@@ -5,7 +5,7 @@ import CheckButton from "react-validation/build/button";
 import {withRouter} from 'react-router-dom';
 import { Redirect} from 'react-router';
 import AuthService from "../services/auth.service";
-
+import Auth from "./common/auth.component";
 const required = value => {
   if (!value) {
     return (
@@ -54,6 +54,7 @@ const required = value => {
 
     this.form.validateAll();
     sessionStorage.setItem('IsLoggedIn', false);
+    const { history } = this.props;
     if (this.checkBtn.context._errors.length === 0) {
     AuthService.login(this.state.username, this.state.password).then(
         () => {
@@ -61,14 +62,20 @@ const required = value => {
           var current_user = AuthService.getCurrentUser();
           if (current_user)
           {
-          console.log("User :", current_user)
+          //console.log("User :", current_user)
           //var user_roles = current_user.roles;
           //console.log("User roles:", user_roles);
           //var doesInclude =user_roles.includes("ROLE_ADMIN");
           //console.log('Does include', doesInclude);
           sessionStorage.setItem('user', this.state.username);
           sessionStorage.setItem('IsLoggedIn', true);
-          this.props.history.push("/home");
+          Auth.authenticate();
+          //console.log("User :", current_user)
+          //console.log("User Loggedin :", sessionStorage.getItem('IsLoggedIn'));
+          history.push("/home");
+          console.log('moving to home')
+         // this.context.history.push('/home')
+          //return  <Redirect to="/home" />;
           
           //window.location.reload();
         }

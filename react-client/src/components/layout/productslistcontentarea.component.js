@@ -3,8 +3,10 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 
 import TableBlock from '../common/tableblock.component';
+import ProductList from '../common/productlist.component';
 
 import ProductService from '../../services/product.services';
+import {withRouter} from 'react-router-dom';
 
 const API_URL = "http://localhost:8080";
 
@@ -47,7 +49,7 @@ class ProductsList extends React.Component{
         <span className="navbar-brand mb-0 h1">Welcome to RetailStore </span>
         </nav>
           <div id="content" className=" w-100 bg-white nopadding mh-100">
-            <TableBlock rows={this.state.current_products} title={'Products'} header={["#","Name","Description","Image"]}/>
+            <ProductList rows={this.state.current_products} title={'Products'} header={["Products are listed below"]}/>
            </div>
              </div>
 
@@ -57,5 +59,5 @@ class ProductsList extends React.Component{
     
 }
 
-export default ProductsList;
+export default withRouter( ProductsList);
 

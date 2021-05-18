@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect} from 'react-router';
-
+import Auth from "./common/auth.component";
 
 
  class Logout extends Component {
@@ -14,6 +14,8 @@ import { Redirect} from 'react-router';
   render() {
         console.log('Clear called');
         localStorage.removeItem("user");
+        sessionStorage.setItem('IsLoggedIn', false);
+        Auth.signout();
         sessionStorage.clear();
     return (
       

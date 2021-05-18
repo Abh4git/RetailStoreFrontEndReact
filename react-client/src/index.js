@@ -5,9 +5,18 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  useParams
+} from "react-router-dom";
+
 ReactDOM.render(
   <React.StrictMode>
+
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
